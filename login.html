@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/forms.css">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <nav class="nav_bar">
+        <ul class="nav_left">
+            <li class="site_name">WatchNest</li>
+        </ul>
+        <ul class="nav_right">
+            <li><a href="/login" class="nav_links">Login</a></li>
+            <li><a href="/register" class="nav_links">Register</a></li>
+            <li><a href="/about" class="nav_links">About</a></li>
+        </ul>
+    </nav>
+    <div class="form">
+        <div class="content">
+            <h2>Login to WatchNest</h2>
+        <form action="/login" method="post" >
+            <input type="email" name="email" placeholder="Enter your email . ." required>
+            <input type="password" name="password" placeholder="Enter your password . ."  required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an acoount? <a href="/register" class="link">Register here</a></p>
+        </div>
+    </div>
+</body>
+</html>

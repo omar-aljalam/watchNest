@@ -1,0 +1,22 @@
+{
+  "test@example.com": [
+    {
+      "name": "Attack on Titan",
+      "status": "Completed",
+      "rating": "9.7",
+      "category": "Action",
+      "studio": "Wit Studio",
+      "notes": "Best animation ever!"
+    }
+  ],
+  "test2@example.com": [
+    {
+      "name": "AOT",
+      "status": "WATCHING",
+      "rating": "9.7",
+      "category": "Action",
+      "studio": "Wit Studio",
+      "notes": "MAAN!"
+    }
+  ]
+}
