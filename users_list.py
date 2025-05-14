@@ -1,7 +1,8 @@
 import json
 class UserShows:
-    def __init__(self, name, status, rating, category, studio, notes):
+    def __init__(self, name, img, status, rating, category, studio, notes):
         self.name = name
+        self.img = img
         self.status = status
         self.rating = rating
         self.category = category
@@ -15,15 +16,13 @@ class UserShows:
             "rating": self.rating,
             "category": self.category,
             "studio": self.studio,
-            "notes": self.notes
+            "notes": self.notes,
+            "img": self.img
         }
     def add_shows(email, show, path="database/user_shows.json"):
-        try:
-            with open(path, encoding="utf-8") as f:
-                data = json.load(f)
-        except FileNotFoundError:
-            data = {}
-        
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    
         if email not in data:
             data[email] = []
         
@@ -43,21 +42,33 @@ class UserShows:
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
 
-if __name__ == "__main__":
-    test = UserShows (
-        name="AOT",
-        status="WATCHING",
-        rating="9.7",
-        category="Action",
-        studio="Wit Studio",
-        notes="MAAN!"      
-    )      
-    email = "test2@example.com"
-    UserShows.add_shows(email, test)
-    # email = "test2@example.com"
-    # name = "AOsdfdsfT"
-    # UserShows.delete_shows(name, email)
+    def edit_shows(name, email, updates, path="database/user_shows.json"):
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+
+            for show in data[email]:
+                if show["name"] == name:
+                    for key, value in updates.items():
+                        if key in show:
+                            show[key]= value
+        
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
 
 
 
+# if __name__ == "__main__":
+#     test = UserShows (
+#         name = "AOT",
+#         img = "https://images-na.ssl-images-amazon.com/images/I/91-t39FCmSL.jpg", 
+#         status = "WATCHING",
+#         rating= 9.7,
+#         category = "Action",
+#         studio = "Wit Studio",
+#         notes = "MAAN!"
+#     ) 
+
+#     email = "lawlitel913@gmail.com"
+
+#     UserShows.add_shows(email, test)
         

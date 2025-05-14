@@ -1,22 +1,13 @@
 {
-  "test@example.com": [
-    {
-      "name": "Attack on Titan",
-      "status": "Completed",
-      "rating": "9.7",
-      "category": "Action",
-      "studio": "Wit Studio",
-      "notes": "Best animation ever!"
-    }
-  ],
-  "test2@example.com": [
+  "lawlitel913@gmail.com": [
     {
       "name": "AOT",
       "status": "WATCHING",
-      "rating": "9.7",
+      "rating": 9.7,
       "category": "Action",
       "studio": "Wit Studio",
-      "notes": "MAAN!"
+      "notes": "MAAN!",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/91-t39FCmSL.jpg"
     }
   ]
 }

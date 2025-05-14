@@ -1,9 +1,10 @@
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session, redirect, url_for
 import time
+from users_list import UserShows
 
-#main
 app = Flask(__name__)
+app.secret_key = "Xx_secret_key_xX"
 
 def json_file():
     with open("database/anime.json", "r", encoding="utf-8") as file:
@@ -26,10 +27,14 @@ def logs(email ,password):
             parts = line.strip().split("|")
             username, registered_email, registered_password = parts
             if registered_email ==  email and registered_password == password: 
+                session["user_email"] = email
                 current_time = time.strftime("%Y-%m-%d %H:%M:%S")
+               
                 with open("database/logs.txt", "a") as log:
                     log.write(f"{username}|{email}|{current_time}\n")
-                    return get_html("myList")
+                
+                return redirect(url_for("my_list"))
+                   
 
 def registeration(username, email, password):
         if not (username and email and password and len(password) >= 8):
@@ -49,6 +54,9 @@ def Home():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if session.get("user_email"):
+        return redirect(url_for("my_list"))
+    
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
@@ -64,11 +72,76 @@ def register():
         return registeration(username, email, password)
     return get_html("register")
 
+@app.route("/logout")
+def logout():
+    session.pop("user_email", None)
+
+    html = get_html('login')
+    html += """"
+    <script>
+        localStorage.clear();
+    </script>
+    """
+    return html
+
+@app.route("/mylist")
+def my_list():
+    if "user_email" not in session:
+        return get_html("login")
+
+    email = session["user_email"]
+    username = ""
+
+    with open("database/register.txt") as db:
+        for line in db:
+            parts = line.strip().split("|")
+            if parts[1] == email:
+                username = parts[0]
+                break
+    try:
+        with open("database/user_shows.json", encoding="utf-8") as f:
+            data = json.load(f)
+            user_shows = data.get(email, [])
+    except FileNotFoundError:
+        user_shows = []
+
+    html = get_html("list") 
+    table_rows = ""
+    for show in user_shows:
+        table_rows += f"""
+        <tr>
+            <td>
+                <div class="anime-info">
+                    <img src="{show.get('img', '')}" alt="{show['name']}">
+                    <span>{show['name']}</span>
+                </div>
+            </td>
+            <td>{show.get('status', '')}</td>
+            <td>{show.get('rating', '')}</td>
+            <td>{show.get('category', '')}</td>
+            <td>{show.get('studio', '')}</td>
+            <td><input type="text" class="notes-input" value="{show.get('notes', '')}" placeholder="Add note..."></td>
+            <td><button class="action-btn">Edit</button></td>
+            <td><button class="action-btn delete-btn">Delete</button></td>
+        </tr>
+        """
+    html = html.replace("$$table$$", table_rows)
+
+    html += f"""
+    <script>
+        localStorage.setItem("username", "{username}");
+        localStorage.setItem("email", "{email}");
+    </script>
+    """     
+    return html
+          
+
+
 @app.route("/api/shows", methods = ["GET"])
 def get_shows():
     return(jsonify(json_file()))
 
-@app.route("/shows", methods=["GET", "POST"])
+@app.route("/shows")
 def shows():
     return get_html("shows")
 
@@ -90,6 +163,7 @@ def details():
             html = html.replace("$$desc$$", anime.get("description", "No description."))
             return html
     return "<h1>Anime not found</h1>"
+
 
 @app.route("/search")
 def search():
