@@ -1,5 +1,5 @@
 import json
-from flask import Flask, request, jsonify, session, redirect, url_for
+from flask import Flask, request, jsonify, session, redirect, url_for, render_template
 import time
 from users_list import UserShows
 
@@ -33,7 +33,7 @@ def logs(email ,password):
                 with open("database/logs.txt", "a") as log:
                     log.write(f"{username}|{email}|{current_time}\n")
                 
-                return redirect(url_for("my_list"))
+                return True
                    
 
 def registeration(username, email, password):
@@ -60,7 +60,8 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-        return logs(email, password)
+        if logs(email, password):
+            return redirect(url_for("my_list"))
     return get_html("login")
 
 @app.route("/register", methods=["GET", "POST"])
@@ -120,7 +121,7 @@ def my_list():
             <td>{show.get('rating', '')}</td>
             <td>{show.get('category', '')}</td>
             <td>{show.get('studio', '')}</td>
-            <td><input type="text" class="notes-input" value="{show.get('notes', '')}" placeholder="Add note..."></td>
+            <td>{show.get('notes', '')}</td>
             <td><button class="action-btn">Edit</button></td>
             <td><button class="action-btn delete-btn">Delete</button></td>
         </tr>
@@ -129,8 +130,10 @@ def my_list():
 
     html += f"""
     <script>
+        const username = "{username}";
         localStorage.setItem("username", "{username}");
         localStorage.setItem("email", "{email}");
+        document.getElementById("welcome").textContent = "Welcome " + username;
     </script>
     """     
     return html

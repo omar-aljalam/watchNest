@@ -6,6 +6,7 @@ h1 {
 }
 
 .anime-table{
+    text-align: centerd;
     width: 85%;
     border-radius: 5px;
     margin: 0 auto;

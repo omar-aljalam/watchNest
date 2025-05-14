@@ -8,6 +8,15 @@
       "studio": "Wit Studio",
       "notes": "MAAN!",
       "img": "https://images-na.ssl-images-amazon.com/images/I/91-t39FCmSL.jpg"
+    },
+    {
+      "name": "Death Note",
+      "status": "Completed",
+      "rating": 10,
+      "category": "Mystery",
+      "studio": "Madhouse",
+      "notes": "The best",
+      "img": "https://static.posters.cz/image/750/plakaty/death-note-from-the-shadows-i58005.jpg"
     }
   ]
 }

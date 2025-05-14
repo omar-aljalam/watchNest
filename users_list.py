@@ -58,17 +58,17 @@ class UserShows:
 
 
 # if __name__ == "__main__":
-#     test = UserShows (
-#         name = "AOT",
-#         img = "https://images-na.ssl-images-amazon.com/images/I/91-t39FCmSL.jpg", 
-#         status = "WATCHING",
-#         rating= 9.7,
-#         category = "Action",
-#         studio = "Wit Studio",
-#         notes = "MAAN!"
-#     ) 
+    # test = UserShows (
+    #     name = "Death Note",
+    #     img = "https://static.posters.cz/image/750/plakaty/death-note-from-the-shadows-i58005.jpg", 
+    #     status = "Completed",
+    #     rating= 10,
+    #     category = "Mystery",
+    #     studio = "Madhouse",
+    #     notes = "The best"
+    # ) 
 
-#     email = "lawlitel913@gmail.com"
+    # email = "lawlitel913@gmail.com"
 
-#     UserShows.add_shows(email, test)
+    # UserShows.add_shows(email, test)
         
