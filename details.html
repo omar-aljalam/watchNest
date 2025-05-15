@@ -24,7 +24,27 @@
             <p><strong>Genre:</strong> $$genre$$</p>
             <p><strong>Studio:</strong> $$studio$$</p>
             <p class="desc">$$desc$$</p>
-            <a href="/mylist?title=$$name$$" class="btn"> Add to My list</a>
+            <form action="/add_show" method="post" class="details-form">
+                <input type="hidden" name="name" value="$$name$$">
+                <input type="hidden" name="img" value="$$img$$">
+                <input type="hidden" name="caregory" value="$$genre$$">
+                <input type="hidden" name="stuido" value="$$studio">
+                <label for="status"><strong>Status:</strong></label>
+                <select name="status" required>
+                    <option value="Watching">Watching</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Plan to Watch" selected>Plan to Watch</option>
+                    <option value="Dropped">Dropped</option>
+                </select>
+                <br><br>
+                <label for="rating"><strong>Your Rating (out of 10):</strong></label>                
+                <input type="number" name="rating" step="0.5" min="0" max="10" placeholder="my rating" required>
+                <br><br>
+                <label for="notes"><strong>Notes:</strong></label>
+                <textarea name="notes" rows="3" cols="20" placeholder="Add your thoughts..."></textarea>
+                <br><br>
+                <button type="submit" class="btn">Add yo My list</button>
+            </form>
 
     </div>
 </body>

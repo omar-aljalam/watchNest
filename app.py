@@ -139,7 +139,6 @@ def my_list():
     return html
           
 
-
 @app.route("/api/shows", methods = ["GET"])
 def get_shows():
     return(jsonify(json_file()))
@@ -167,7 +166,6 @@ def details():
             return html
     return "<h1>Anime not found</h1>"
 
-
 @app.route("/search")
 def search():
     data = json_file()
@@ -175,6 +173,25 @@ def search():
     results = [anime for anime in data
                 if query in anime["name"].lower()]
     return jsonify(results)
+
+@app.route("/add_show", methods=["GEt", "POST"])
+def add_show():
+    if "user_email" not in session:
+        return get_html("login")
+    
+    email = session ["user_email"]
+
+    name = request.form.get("name")
+    img = request.form.get("img")
+    category = request.form.get("category")
+    studio =  request.form.get("studio")
+    status = request.form.get("status")
+    notes =  request.form.get("notes")
+    rating =  request.form.get("rating")
+
+    show = UserShows(name, img, status, rating, category, status, notes)
+    UserShows.add_shows(email, show)
+    return redirect(url_for("my_list"))
         
 if __name__ == "__main__":
     app.run(debug=True)
