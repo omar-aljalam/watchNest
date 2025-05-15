@@ -21,30 +21,12 @@
   ],
   "ranpomar2@gmail.com": [
     {
-      "name": "Death Note",
-      "status": "Completed",
-      "rating": 10,
-      "category": "Mystery",
-      "studio": "Madhouse",
-      "notes": "The best",
-      "img": "https://static.posters.cz/image/750/plakaty/death-note-from-the-shadows-i58005.jpg"
-    },
-    {
-      "name": "Attack on Titan",
-      "status": "Completed",
-      "rating": "4",
-      "category": null,
-      "studio": "Completed",
-      "notes": "bad ending",
-      "img": "https://images-na.ssl-images-amazon.com/images/I/91-t39FCmSL.jpg"
-    },
-    {
       "name": "Monster",
-      "status": "Watching",
-      "rating": "10",
+      "status": "Completed",
+      "rating": "0.5",
       "category": null,
-      "studio": "Watching",
-      "notes": "goat",
+      "studio": null,
+      "notes": "",
       "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/826ce2f3-1d3a-4ca5-834e-06ec10744b27/df5nsoh-da09dd07-b784-4147-9396-94c2d05709a6.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzgyNmNlMmYzLTFkM2EtNGNhNS04MzRlLTA2ZWMxMDc0NGIyN1wvZGY1bnNvaC1kYTA5ZGQwNy1iNzg0LTQxNDctOTM5Ni05NGMyZDA1NzA5YTYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JfgM389GmC02vlgz-6kjwtW-SEXsEk8h8vbrshVw3Ck"
     }
   ]

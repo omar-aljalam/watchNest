@@ -117,13 +117,34 @@ def my_list():
                     <span>{show['name']}</span>
                 </div>
             </td>
-            <td>{show.get('status', '')}</td>
-            <td>{show.get('rating', '')}</td>
-            <td>{show.get('category', '')}</td>
-            <td>{show.get('studio', '')}</td>
-            <td>{show.get('notes', '')}</td>
-            <td><button class="action-btn">Edit</button></td>
-            <td><button class="action-btn delete-btn">Delete</button></td>
+ <form action="/edit_show" method="post">
+                <input type="hidden" name="name" value="{show['name']}">
+                <td>
+                    <select name="status">
+                        <option {'selected' if show['status'] == 'Watching' else ''}>Watching</option>
+                        <option {'selected' if show['status'] == 'Completed' else ''}>Completed</option>
+                        <option {'selected' if show['status'] == 'Plan to Watch' else ''}>Plan to Watch</option>
+                        <option {'selected' if show['status'] == 'Dropped' else ''}>Dropped</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" step="0.1" min="0" max="10" name="rating" value="{show['rating']}">
+                </td>
+                <td>{show.get('category', '')}</td>
+                <td>{show.get('studio', '')}</td>
+                <td>
+                    <input type="text" name="notes" value="{show.get('notes', '')}">
+                </td>
+                <td>
+                    <button type="submit" class="action-btn">Save</button>
+                </td>
+            </form>
+            <form action="/delete_show" method="post">
+                <input type="hidden" name="name" value="{show['name']}">
+                <td>
+                    <button type="submit" class="action-btn delete-btn">Delete</button>
+                </td>
+            </form>
         </tr>
         """
     html = html.replace("$$table$$", table_rows)
@@ -189,9 +210,39 @@ def add_show():
     notes =  request.form.get("notes")
     rating =  request.form.get("rating")
 
-    show = UserShows(name, img, status, rating, category, status, notes)
+    show = UserShows(name, img, status, rating, category, studio, notes)
     UserShows.add_shows(email, show)
     return redirect(url_for("my_list"))
+
+@app.route("/edit_show", methods=["GEt", "POST"])
+def edit_show():
+    if "user_email" not in session:
+        return get_html("login")
+    
+    email = session["user_email"]
+    name = request.form.get("name")
+
+    updates = {
+        "status": request.form.get("status"),
+        "rating": request.form.get("rating"),
+        "notes": request.form.get("notes")
+    }
+
+    UserShows.edit_shows(name, email, updates)
+    return redirect("mylist")
+
+@app.route("/delete_show", methods=["GEt", "POST"])
+def delete_show():
+    if "user_email" not in session:
+        return get_html("login")
+
+    email = session["user_email"]
+    name = request.form.get("name")
+    
+    UserShows.delete_shows(name, email)
+
+    return redirect("mylist")
+    
         
 if __name__ == "__main__":
     app.run(debug=True)

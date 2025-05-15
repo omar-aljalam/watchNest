@@ -55,20 +55,4 @@ class UserShows:
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
 
-
-
-# if __name__ == "__main__":
-    # test = UserShows (
-    #     name = "Death Note",
-    #     img = "https://static.posters.cz/image/750/plakaty/death-note-from-the-shadows-i58005.jpg", 
-    #     status = "Completed",
-    #     rating= 10,
-    #     category = "Mystery",
-    #     studio = "Madhouse",
-    #     notes = "The best"
-    # ) 
-
-    # email = "lawlitel913@gmail.com"
-
-    # UserShows.add_shows(email, test)
         
