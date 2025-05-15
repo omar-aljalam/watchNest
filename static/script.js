@@ -45,6 +45,3 @@ document.getElementById("search_form").addEventListener("input", function (e) {
     e.preventDefault();
     search();
 });
-
-
-

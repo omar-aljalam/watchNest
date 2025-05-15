@@ -21,13 +21,40 @@
   ],
   "ranpomar2@gmail.com": [
     {
-      "name": "Monster",
-      "status": "Completed",
-      "rating": "0.5",
+      "name": "Death Note",
+      "status": "Plan to Watch",
+      "rating": "5",
       "category": null,
       "studio": null,
       "notes": "",
-      "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/826ce2f3-1d3a-4ca5-834e-06ec10744b27/df5nsoh-da09dd07-b784-4147-9396-94c2d05709a6.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzgyNmNlMmYzLTFkM2EtNGNhNS04MzRlLTA2ZWMxMDc0NGIyN1wvZGY1bnNvaC1kYTA5ZGQwNy1iNzg0LTQxNDctOTM5Ni05NGMyZDA1NzA5YTYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JfgM389GmC02vlgz-6kjwtW-SEXsEk8h8vbrshVw3Ck"
+      "img": "https://static.posters.cz/image/750/plakaty/death-note-from-the-shadows-i58005.jpg"
+    },
+    {
+      "name": "Sword Art Online",
+      "status": "Plan to Watch",
+      "rating": "1",
+      "category": null,
+      "studio": null,
+      "notes": "sdcsdfsdf",
+      "img": "https://upload.wikimedia.org/wikipedia/en/3/3e/Sword_Art_Online_light_novel_volume_1_cover.jpg"
+    },
+    {
+      "name": "Attack on Titan",
+      "status": "Plan to Watch",
+      "rating": "1",
+      "category": null,
+      "studio": null,
+      "notes": "",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/91-t39FCmSL.jpg"
+    },
+    {
+      "name": "Violet Evergarden",
+      "status": "Plan to Watch",
+      "rating": "10",
+      "category": null,
+      "studio": null,
+      "notes": "",
+      "img": "https://cdnb.artstation.com/p/assets/covers/images/014/576/661/large/andras-szamel-violet-evergarden-poster-2.jpg?1544553441"
     }
   ]
 }

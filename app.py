@@ -55,13 +55,13 @@ def Home():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get("user_email"):
-        return redirect(url_for("my_list"))
+        return redirect(url_for("shows"))
     
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
         if logs(email, password):
-            return redirect(url_for("my_list"))
+            return redirect(url_for("shows"))
     return get_html("login")
 
 @app.route("/register", methods=["GET", "POST"])
@@ -117,7 +117,7 @@ def my_list():
                     <span>{show['name']}</span>
                 </div>
             </td>
- <form action="/edit_show" method="post">
+                <form action="/edit_show" method="post">
                 <input type="hidden" name="name" value="{show['name']}">
                 <td>
                     <select name="status">
@@ -171,8 +171,19 @@ def shows():
 @app.route("/shows/details")
 def details():
     name = request.args.get("name").strip()
-    if not name:
-        return "<h1> No anime specified</h1>"
+
+    email = session.get("user_email")
+
+    with open("database/user_shows.json", encoding="utf=8") as f:
+        data = json.load(f)
+        user_shows = data.get(email, [])
+
+    in_list = False
+    for show in user_shows:
+        if show["name"] == name:
+            in_list = True
+            break
+
     anime_data = json_file()
     for anime in anime_data:
         if anime["name"] == name:
@@ -184,8 +195,19 @@ def details():
             html = html.replace("$$genre$$", anime.get("categorie", "N/A"))
             html = html.replace("$$studio$$", anime.get("studio", "N/A"))
             html = html.replace("$$desc$$", anime.get("description", "No description."))
+
+            if in_list:
+                html += """
+                <script>
+                    const btn = document.getElementById("btn");
+                    btn.textContent = "Already in List";
+                    btn.disabled = true;
+                    btn.style.backgroundColor = "gray";
+                   
+                </script>
+                """
             return html
-    return "<h1>Anime not found</h1>"
+
 
 @app.route("/search")
 def search():
@@ -201,6 +223,7 @@ def add_show():
         return get_html("login")
     
     email = session ["user_email"]
+    
 
     name = request.form.get("name")
     img = request.form.get("img")
@@ -214,7 +237,7 @@ def add_show():
     UserShows.add_shows(email, show)
     return redirect(url_for("my_list"))
 
-@app.route("/edit_show", methods=["GEt", "POST"])
+@app.route("/edit_show", methods=["GET", "POST"])
 def edit_show():
     if "user_email" not in session:
         return get_html("login")

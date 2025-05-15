@@ -24,6 +24,7 @@
             <p><strong>Genre:</strong> $$genre$$</p>
             <p><strong>Studio:</strong> $$studio$$</p>
             <p class="desc">$$desc$$</p>
+
             <form action="/add_show" method="post" class="details-form">
                 <input type="hidden" name="name" value="$$name$$">
                 <input type="hidden" name="img" value="$$img$$">
@@ -43,7 +44,7 @@
                 <label for="notes"><strong>Notes:</strong></label>
                 <textarea name="notes" rows="3" cols="20" placeholder="Add your thoughts..."></textarea>
                 <br><br>
-                <button type="submit" class="btn">Add yo My list</button>
+                <button type="submit" id= "btn" class="btn">Add to My list</button>
             </form>
 
     </div>

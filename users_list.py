@@ -19,6 +19,7 @@ class UserShows:
             "notes": self.notes,
             "img": self.img
         }
+    
     def add_shows(email, show, path="database/user_shows.json"):
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
