@@ -1,5 +1,5 @@
 import json
-from flask import Flask, request, jsonify, session, redirect, url_for, render_template
+from flask import Flask, request, jsonify, session, redirect, url_for
 import time
 from users_list import UserShows
 
@@ -10,14 +10,16 @@ def json_file():
     with open("database/anime.json", "r", encoding="utf-8") as file:
         data = json.load(file)
         return data
+
+def is_authenticated():
+    if "user_email" not in session:
+        return redirect(url_for("login"))
+    return True
     
 def get_html(page_name):
-    try:
-        with open(page_name + ".html") as html_file:
-            return html_file.read()
-    except FileNotFoundError:
-        return f"<h1>Page {page_name} not found.</h1>"
-
+    with open(page_name + ".html") as html_file:
+        return html_file.read()
+    
 def logs(email ,password):
     if not (email and password):
         return get_html("login")
@@ -34,19 +36,22 @@ def logs(email ,password):
                     log.write(f"{username}|{email}|{current_time}\n")
                 
                 return True
+    return False
                    
 
 def registration(username, email, password):
-        if not (username and email and password and len(password) >= 8):
-            return get_html("register")
-        
-        with open("database/register.txt", "r") as db:
-            for line in db:
-                if email in line:
-                    return get_html("register")
+    html = get_html("register")
+    if not (username and email and password and len(password) >= 8):
+        return html.replace("$$error$$", "Invaild email or passoword.")
+    
+    with open("database/register.txt", "r") as db:
+        for line in db:
+            if email in line:
+                return html.replace("$$error$$", "Email already exists.")
+
         with open("database/register.txt", "a") as db:
-            db.write(f"{username}|{email}|{password}\n")
-        return get_html("login")
+             db.write(f"{username}|{email}|{password}\n")
+    return redirect(url_for("login"))
 
 @app.route("/")
 def Home():
@@ -57,12 +62,18 @@ def login():
     if session.get("user_email"):
         return redirect(url_for("my_list"))
     
+    html = get_html("login")
+
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
+        
         if logs(email, password):
             return redirect(url_for("my_list"))
-    return get_html("login")
+        else:
+            return html.replace("$$error$$", "Invalid email or passowrwd.")
+        
+    return html.replace("$$error$$", "")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -71,24 +82,27 @@ def register():
         email = request.form.get("email")
         password = request.form.get("password")
         return registration(username, email, password)
-    return get_html("register")
+    
+    return get_html("register").replace("$$error$$", "")
 
 @app.route("/logout")
 def logout():
     session.pop("user_email", None)
 
-    html = get_html('login')
+    html = get_html("login")
     html += """"
     <script>
         localStorage.clear();
+        window.location.href = '/login';
     </script>
     """
     return html
 
 @app.route("/mylist")
 def my_list():
-    if "user_email" not in session:
-        return get_html("login")
+    is_authenticated()
+    
+    login_time = time.strftime("%Y-%m-%d %H:%M:%S")
 
     email = session["user_email"]
     username = ""
@@ -133,7 +147,7 @@ def my_list():
                 <td>{show.get('category')}</td>
                 <td>{show.get('studio')}</td>
                 <td>
-                    <input type="text" name="notes" value="{show.get('notes', '')}">
+                    <textarea name="notes">{show.get('notes', '')}</textarea>
                 </td>
                 <td>
                     <button type="submit" class="action-btn">Save</button>
@@ -154,6 +168,7 @@ def my_list():
         const username = "{username}";
         localStorage.setItem("username", "{username}");
         localStorage.setItem("email", "{email}");
+        localStorage.setItem("login_time", "{login_time}");
         document.getElementById("welcome").textContent = "Welcome " + username;
     </script>
     """     
@@ -217,14 +232,12 @@ def search():
                 if query in anime["name"].lower()]
     return jsonify(results)
 
-@app.route("/add_show", methods=["GEt", "POST"])
+@app.route("/add_show", methods=["GET", "POST"])
 def add_show():
-    if "user_email" not in session:
-        return get_html("login")
+    is_authenticated()
     
     email = session ["user_email"]
     
-
     name = request.form.get("name")
     img = request.form.get("img")
     category = request.form.get("category")
@@ -239,8 +252,7 @@ def add_show():
 
 @app.route("/edit_show", methods=["GET", "POST"])
 def edit_show():
-    if "user_email" not in session:
-        return get_html("login")
+    is_authenticated()
     
     email = session["user_email"]
     name = request.form.get("name")
@@ -256,8 +268,7 @@ def edit_show():
 
 @app.route("/delete_show", methods=["GET", "POST"])
 def delete_show():
-    if "user_email" not in session:
-        return get_html("login")
+    is_authenticated()
 
     email = session["user_email"]
     name = request.form.get("name")

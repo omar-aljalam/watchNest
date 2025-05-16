@@ -5,7 +5,7 @@ if (username){
     links[0].textContent = "My List";
     links[0].setAttribute("href", "/mylist");
 
-    links[1].textContent = "log out";
+    links[1].textContent = "Logout";
     links[1].setAttribute("href", "/logout");
 } else {
     links[0].textContent = "Login";
@@ -14,6 +14,8 @@ if (username){
     links[1].textContent = "Register";
     links[1].setAttribute("href", "/register");
 }
+
+
 function loadSHows() {
     fetch("/api/shows")
     .then(responseJS)

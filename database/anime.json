@@ -106,6 +106,77 @@
             "categorie":"Animation | Drama | Adventure",
             "studio":"Madhouse",
             "img": "https://i5.walmartimages.com/seo/Hunter-X-Hunter-Manga-Anime-TV-Show-Poster-Key-Art-Running_fb364b5a-4589-4228-8d95-c2d64ae8dd74.d0059897722721ee63161a5a47bc9188.jpeg"
+        },
+        {
+            "name": "Detective Conan",
+            "description": "Shinichi Kudou, a high school student with an astounding talent for detective work, is transformed into a child after being poisoned by mysterious criminals. Adopting the alias Conan Edogawa, he continues solving cases while seeking a cure, all while hiding his true identity from those around him—including his childhood friend and love interest, Ran Mouri.",
+            "Rating": "8.25",
+            "episode": 1000,
+            "categorie": "Mystery | Drama | Crime",
+            "studio": "TMS Entertainment",
+            "img": "https://upload.wikimedia.org/wikipedia/en/3/3f/Case_Closed_Volume_36.png"
+        },
+        {
+            "name": "Spy x Family",
+            "description": "In order to maintain peace between rival nations, a master spy codenamed Twilight must infiltrate an elite school. To do this, he creates a fake family: a wife who’s secretly an assassin, and a child who can read minds. Together, they form an unusual yet oddly wholesome family navigating secrets and danger on all sides.",
+            "Rating": "8.60",
+            "episode": 25,
+            "categorie": "Action | Comedy | Slice of Life",
+            "studio": "Wit Studio, CloverWorks",
+            "img": "https://upload.wikimedia.org/wikipedia/en/5/51/Spy_Family_vol_1.jpg"
+        },
+        {
+            "name": "Jujutsu Kaisen",
+            "description": "Yuuji Itadori is an ordinary high schooler who one day finds himself entangled in the world of curses—malevolent entities born of negative human emotions. After swallowing a cursed object to save his friends, he becomes the host of a powerful and dangerous curse. Enrolled in the Tokyo Metropolitan Jujutsu Technical High School, he learns to battle curses while bearing the burden of the one he carries.",
+            "Rating": "8.69",
+            "episode": 24,
+            "categorie": "Action | Supernatural | Dark Fantasy",
+            "studio": "MAPPA",
+            "img": "https://upload.wikimedia.org/wikipedia/en/4/46/Jujutsu_kaisen.jpg"
+        },
+        {
+            "name": "Erased",
+            "description": "Struggling manga artist Satoru Fujinuma possesses an involuntary ability known as 'Revival', which sends him back in time moments before a life-threatening event occurs. When he’s wrongfully accused of murder, Satoru is sent back 18 years into the past, giving him a chance to prevent a childhood tragedy and change the course of his life.",
+            "Rating": "8.33",
+            "episode": 12,
+            "categorie": "Mystery | Psychological | Drama",
+            "studio": "A-1 Pictures",
+            "img": "https://upload.wikimedia.org/wikipedia/en/6/60/Boku_Dake_ga_Inai_Machi_vol1.jpg"
+        },
+        {
+            "name": "Mob Psycho 100",
+            "description": "Kageyama Shigeo, nicknamed 'Mob', is a powerful psychic who suppresses his emotions to keep his powers in check. Despite wanting a normal life, Mob finds himself involved in bizarre encounters with spirits, cults, and rival psychics. With his master Reigen—a self-proclaimed exorcist with no real powers—Mob navigates the complexity of power, emotion, and personal growth.",
+            "Rating": "8.48",
+            "episode": 25,
+            "categorie": "Action | Supernatural | Comedy",
+            "studio": "Bones",
+            "img": "https://upload.wikimedia.org/wikipedia/en/4/4b/Mob_Psycho_100_manga_vol_1.jpg"
+        },
+        {
+            "name": "Steins;Gate",
+            "description": "Self-proclaimed mad scientist Rintarou Okabe spends his days inventing strange gadgets with his lab mates in a tiny apartment. One day, they accidentally discover that their microwave can send text messages to the past. As they delve deeper into this accidental invention, they find themselves entangled in a dangerous conspiracy involving SERN, time travel, and the fragility of fate.",
+            "Rating": "9.11",
+            "episode": 24,
+            "categorie": "Sci-Fi | Thriller | Drama",
+            "studio": "White Fox",
+            "img": "https://upload.wikimedia.org/wikipedia/en/e/e4/Steins%3BGate_cover_art.jpg"
+        },
+        {
+            "name": "Fullmetal Alchemist: Brotherhood",
+            "description": "After a disastrous failed attempt to bring their mother back to life using alchemy, Edward and Alphonse Elric pay a terrible price. Edward loses his leg, and Alphonse his entire body. Edward manages to save his brother's soul by sacrificing his arm and binding it to a suit of armor. Equipped with mechanical prosthetics and fueled by their goal to restore what they’ve lost, the brothers embark on a journey to obtain the Philosopher's Stone—an alchemical artifact said to amplify one's powers enormously.",
+            "Rating": "9.13",
+            "episode": 64,
+            "categorie": "Action | Drama | Fantasy",
+            "studio": "Bones",
+            "img": "https://upload.wikimedia.org/wikipedia/en/7/7e/Fullmetal_Alchemist_Brotherhood_key_visual.png"
+        },
+        {       
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "description": "Ever since the death of his father, Tanjirou Kamado has taken it upon himself to support his family. Though living in poverty, the Kamado family leads a relatively peaceful and happy life. One day, Tanjirou finds his family slaughtered by demons, with only his sister Nezuko surviving—now transformed into a demon herself. Determined to avenge his family and cure his sister, Tanjirou joins the Demon Slayer Corps to hunt down the demons plaguing his land.",
+            "Rating": "8.52",
+            "episode": 26,
+            "categorie": "Action | Supernatural | Historical",
+            "studio": "ufotable",
+            "img": "https://upload.wikimedia.org/wikipedia/en/0/09/Demon_Slayer_-_Kimetsu_no_Yaiba%2C_volume_1.jpg"
         }
-
-    ]
+]

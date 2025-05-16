@@ -8,8 +8,6 @@ body {
     font-family: Arial,sans-serif;
     color: #333;
     background-color: #f8f9fa;
-    justify-content: center;
-    align-items:flex-start;
     min-height: 100px;
     width: 100%;
 }
@@ -19,7 +17,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    white-space: nowrap;
 }
 
 .nav_left, .nav_right {
