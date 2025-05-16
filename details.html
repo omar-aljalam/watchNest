@@ -13,6 +13,7 @@
             <li class="site_name">WatchNest</li>
         </ul>
         <ul class="nav_right">
+            <li><a href="/mylist" class="nav_links">My List</a></li>
             <li><a href="/shows" class="nav_links">Back</a></li>
         </ul>
     </nav>
@@ -28,8 +29,8 @@
             <form action="/add_show" method="post" class="details-form">
                 <input type="hidden" name="name" value="$$name$$">
                 <input type="hidden" name="img" value="$$img$$">
-                <input type="hidden" name="caregory" value="$$genre$$">
-                <input type="hidden" name="stuido" value="$$studio">
+                <input type="hidden" name="category" value="$$genre$$">
+                <input type="hidden" name="studio" value="$$studio$$">
                 <label for="status"><strong>Status:</strong></label>
                 <select name="status" required>
                     <option value="Watching">Watching</option>
@@ -37,13 +38,10 @@
                     <option value="Plan to Watch" selected>Plan to Watch</option>
                     <option value="Dropped">Dropped</option>
                 </select>
-                <br><br>
                 <label for="rating"><strong>Your Rating (out of 10):</strong></label>                
-                <input type="number" name="rating" step="0.5" min="0" max="10" placeholder="my rating" required>
-                <br><br>
+                <input type="number" name="rating" step="0.5" min="1" max="10" placeholder="my rating">
                 <label for="notes"><strong>Notes:</strong></label>
                 <textarea name="notes" rows="3" cols="20" placeholder="Add your thoughts..."></textarea>
-                <br><br>
                 <button type="submit" id= "btn" class="btn">Add to My list</button>
             </form>
 

@@ -1,3 +1,19 @@
+const username = localStorage.getItem("username");
+const links = document.getElementsByClassName("nav_links");
+
+if (username){
+    links[0].textContent = "My List";
+    links[0].setAttribute("href", "/mylist");
+
+    links[1].textContent = "log out";
+    links[1].setAttribute("href", "/logout");
+} else {
+    links[0].textContent = "Login";
+    links[0].setAttribute("href", "/login");
+
+    links[1].textContent = "Register";
+    links[1].setAttribute("href", "/register");
+}
 function loadSHows() {
     fetch("/api/shows")
     .then(responseJS)

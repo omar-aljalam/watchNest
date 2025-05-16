@@ -6,21 +6,21 @@ h1 {
 }
 
 .anime-table{
-    text-align: centerd;
-    width: 85%;
-    border-radius: 5px;
-    margin: 0 auto;
+    text-align: center;
+    max-width: 85%;
+    border-collapse: collapse;
+    margin: 40px auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.anime-table th, .anime-table td {
+.anime-table th,
+ .anime-table td {
     padding: 15px;
     border: 1px solid #ddd;
-    vertical-align: middle;
 }
 
 .anime-table th {
-    background-color: #eee;
+    background-color: #ebe7e7;
 }
 
 .anime-info {
@@ -30,9 +30,11 @@ h1 {
 }
 
 .anime-info img {
-    width: 60px;
+    width: 50px;
+    height: 70px;
     border-radius: 3px;
 }
+
 
 .notes-input {
     width: 100%;
@@ -45,7 +47,7 @@ h1 {
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 

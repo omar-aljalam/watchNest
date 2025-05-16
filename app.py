@@ -36,7 +36,7 @@ def logs(email ,password):
                 return True
                    
 
-def registeration(username, email, password):
+def registration(username, email, password):
         if not (username and email and password and len(password) >= 8):
             return get_html("register")
         
@@ -55,13 +55,13 @@ def Home():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get("user_email"):
-        return redirect(url_for("shows"))
+        return redirect(url_for("my_list"))
     
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
         if logs(email, password):
-            return redirect(url_for("shows"))
+            return redirect(url_for("my_list"))
     return get_html("login")
 
 @app.route("/register", methods=["GET", "POST"])
@@ -70,7 +70,7 @@ def register():
         username = request.form.get("username")
         email = request.form.get("email")
         password = request.form.get("password")
-        return registeration(username, email, password)
+        return registration(username, email, password)
     return get_html("register")
 
 @app.route("/logout")
@@ -113,7 +113,7 @@ def my_list():
         <tr>
             <td>
                 <div class="anime-info">
-                    <img src="{show.get('img', '')}" alt="{show['name']}">
+                    <img src="{show.get('img')}" alt="{show['name']}">
                     <span>{show['name']}</span>
                 </div>
             </td>
@@ -128,10 +128,10 @@ def my_list():
                     </select>
                 </td>
                 <td>
-                    <input type="number" step="0.1" min="0" max="10" name="rating" value="{show['rating']}">
+                    <input type="number" step="0.5" min="1" max="10" name="rating" value="{show['rating']}">
                 </td>
-                <td>{show.get('category', '')}</td>
-                <td>{show.get('studio', '')}</td>
+                <td>{show.get('category')}</td>
+                <td>{show.get('studio')}</td>
                 <td>
                     <input type="text" name="notes" value="{show.get('notes', '')}">
                 </td>
@@ -172,29 +172,29 @@ def shows():
 def details():
     name = request.args.get("name").strip()
 
-    email = session.get("user_email")
-
-    with open("database/user_shows.json", encoding="utf=8") as f:
-        data = json.load(f)
-        user_shows = data.get(email, [])
-
-    in_list = False
-    for show in user_shows:
-        if show["name"] == name:
-            in_list = True
-            break
-
     anime_data = json_file()
     for anime in anime_data:
         if anime["name"] == name:
             html = get_html("details")
             html = html.replace("$$name$$", anime["name"])
             html = html.replace("$$img$$", anime["img"])
-            html = html.replace("$$rating$$", str(anime.get("Rating", "N/A")))
-            html = html.replace("$$episodes$$", str(anime.get("episode", "N/A")))
-            html = html.replace("$$genre$$", anime.get("categorie", "N/A"))
-            html = html.replace("$$studio$$", anime.get("studio", "N/A"))
-            html = html.replace("$$desc$$", anime.get("description", "No description."))
+            html = html.replace("$$rating$$", str(anime.get("Rating")))
+            html = html.replace("$$episodes$$", str(anime.get("episode")))
+            html = html.replace("$$genre$$", anime.get("categorie"))
+            html = html.replace("$$studio$$", anime.get("studio"))
+            html = html.replace("$$desc$$", anime.get("description"))
+
+            email = session.get("user_email")
+
+            with open("database/user_shows.json", encoding="utf-8") as f:
+                data = json.load(f)
+                user_shows = data.get(email, [])
+
+            in_list = False
+            for show in user_shows:
+                if show["name"] == name:
+                    in_list = True
+                    break
 
             if in_list:
                 html += """
@@ -252,9 +252,9 @@ def edit_show():
     }
 
     UserShows.edit_shows(name, email, updates)
-    return redirect("mylist")
+    return redirect(url_for("my_list"))
 
-@app.route("/delete_show", methods=["GEt", "POST"])
+@app.route("/delete_show", methods=["GET", "POST"])
 def delete_show():
     if "user_email" not in session:
         return get_html("login")
@@ -264,7 +264,7 @@ def delete_show():
     
     UserShows.delete_shows(name, email)
 
-    return redirect("mylist")
+    return redirect(url_for("my_list"))
     
         
 if __name__ == "__main__":

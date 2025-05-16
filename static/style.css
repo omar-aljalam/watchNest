@@ -8,6 +8,10 @@ body {
     font-family: Arial,sans-serif;
     color: #333;
     background-color: #f8f9fa;
+    justify-content: center;
+    align-items:flex-start;
+    min-height: 100px;
+    width: 100%;
 }
 .nav_bar {
     background-color: #2c3e50;
@@ -15,6 +19,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
+    white-space: nowrap;
 }
 
 .nav_left, .nav_right {
@@ -33,6 +38,7 @@ body {
     color: white;
     font-size: 30px;
     font-weight: bold; 
+    text-decoration: none;
 }
 
 .nav_links {
@@ -46,7 +52,7 @@ body {
     text-decoration: none;
     color: white;
 }
-.nav_links:hover {
+.nav_links:hover{
     text-decoration: underline;
     background-color: #34495e
 }
