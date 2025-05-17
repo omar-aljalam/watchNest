@@ -1,42 +1,60 @@
 {
   "lawlitel913@gmail.com": [
     {
-      "name": "One Piece",
-      "status": "Dropped",
-      "rating": "7.5",
-      "category": "Animation | Drama | Adventure",
-      "studio": "Toei Animation",
-      "notes": "I got bored of this anime!! it is really long",
-      "img": "https://f.ptcdn.info/474/056/000/p55ua4uuw5hbBfpWS5Q-o.jpg"
+      "name": "Detective Conan",
+      "status": "Watching",
+      "rating": "9.5",
+      "category": "Mystery | Drama | Crime",
+      "studio": "TMS Entertainment",
+      "notes": "It is so fun!!\r\n",
+      "img": "https://upload.wikimedia.org/wikipedia/en/3/3f/Case_Closed_Volume_36.png"
+    },
+    {
+      "name": "Violet Evergarden",
+      "status": "Completed",
+      "rating": "10",
+      "category": "Fantasy | Drama ",
+      "studio": "Kyoto Animation",
+      "notes": "Animation\r\nDialogues \r\nEverything in this anime was a masterpiece",
+      "img": "https://cdnb.artstation.com/p/assets/covers/images/014/576/661/large/andras-szamel-violet-evergarden-poster-2.jpg?1544553441"
     }
   ],
   "ranpomar2@gmail.com": [
     {
       "name": "One Piece",
-      "status": "Plan to Watch",
-      "rating": "0.1",
+      "status": "Watching",
+      "rating": "7.5",
       "category": "Animation | Drama | Adventure",
       "studio": "Toei Animation",
-      "notes": "",
+      "notes": "I like this anime but it is too long",
       "img": "https://f.ptcdn.info/474/056/000/p55ua4uuw5hbBfpWS5Q-o.jpg"
     },
     {
       "name": "Attack on Titan",
-      "status": "Plan to Watch",
-      "rating": "",
+      "status": "Completed",
+      "rating": "9",
       "category": "Animation | Drama | Adventure",
       "studio": "Wit Studio",
-      "notes": "",
+      "notes": "Great anime\r\nBad ending",
       "img": "https://images-na.ssl-images-amazon.com/images/I/91-t39FCmSL.jpg"
     },
     {
       "name": "Death Note",
-      "status": "Plan to Watch",
-      "rating": "",
+      "status": "Completed",
+      "rating": "10",
       "category": "Animation | Adventure",
       "studio": "Madhouse",
-      "notes": "",
+      "notes": "This is my favorite anime!",
       "img": "https://static.posters.cz/image/750/plakaty/death-note-from-the-shadows-i58005.jpg"
+    },
+    {
+      "name": "Tokyo Ghoul",
+      "status": "Dropped",
+      "rating": "5",
+      "category": "Action | Mystery",
+      "studio": "Studio Pierrot",
+      "notes": "this ani,e is trash",
+      "img": "https://upload.wikimedia.org/wikipedia/en/e/e5/Tokyo_Ghoul_volume_1_cover.jpg"
     }
   ]
 }

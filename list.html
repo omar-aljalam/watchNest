@@ -18,6 +18,18 @@
         </ul>
     </nav>
     <h1 id="welcome">Welcome</h1>
+
+    <div class="filter-container">
+    <label>Filter by Status:</label>
+    <select id="status-filter">
+        <option value="All" selected>All</option>
+        <option value="Watching">Watching</option>
+        <option value="Completed">Completed</option>
+        <option value="Plan to Watch">Plan to Watch</option>
+        <option value="Dropped">Dropped</option>
+    </select>
+    </div>
+
     <table class="anime-table">
         <thead>
             <th>Anime</th>
@@ -29,9 +41,12 @@
             <th>Edit</th>
             <th>Delete</th>
         </thead>
-        <tbody>
+        <tbody id="anime-table">
         $$table$$
         </tbody>
     </table>
+
+
+    <script src="/static/list.js"></script>
  </body>
 </html>

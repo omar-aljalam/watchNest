@@ -5,6 +5,14 @@ h1 {
     margin-bottom: 20px;
 }
 
+.filter-container {
+    text-align: center;
+}
+
+.filter-container label{
+    font-weight: bold;
+}
+
 .anime-table{
     text-align: center;
     max-width: 85%;

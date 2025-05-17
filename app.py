@@ -6,6 +6,10 @@ from users_list import UserShows
 app = Flask(__name__)
 app.secret_key = "Xx_secret_key_xX"
 
+def get_html(page_name):
+    with open(page_name + ".html") as html_file:
+        return html_file.read()
+    
 def json_file():
     with open("database/anime.json", "r", encoding="utf-8") as file:
         data = json.load(file)
@@ -15,14 +19,10 @@ def is_authenticated():
     if "user_email" not in session:
         return redirect(url_for("login"))
     return True
-    
-def get_html(page_name):
-    with open(page_name + ".html") as html_file:
-        return html_file.read()
-    
+     
 def logs(email ,password):
     if not (email and password):
-        return get_html("login")
+        return False, None
     
     with open("database/register.txt", "r") as registers_db:
         for line in registers_db:
@@ -35,8 +35,8 @@ def logs(email ,password):
                 with open("database/logs.txt", "a") as log:
                     log.write(f"{username}|{email}|{current_time}\n")
                 
-                return True
-    return False
+                return True, current_time
+    return False, None
                    
 
 def registration(username, email, password):
@@ -67,9 +67,14 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-        
-        if logs(email, password):
-            return redirect(url_for("my_list"))
+        success, login_time = logs(email, password)
+        if success:
+            return f"""
+            <script>
+                    localStorage.setItem("login_time", "{login_time}");
+                    window.location.href = "/mylist";
+            </script>
+            """
         else:
             return html.replace("$$error$$", "Invalid email or passowrwd.")
         
@@ -89,8 +94,7 @@ def register():
 def logout():
     session.pop("user_email", None)
 
-    html = get_html("login")
-    html += """"
+    html = """"
     <script>
         localStorage.clear();
         window.location.href = '/login';
@@ -102,8 +106,6 @@ def logout():
 def my_list():
     is_authenticated()
     
-    login_time = time.strftime("%Y-%m-%d %H:%M:%S")
-
     email = session["user_email"]
     username = ""
 
@@ -168,7 +170,6 @@ def my_list():
         const username = "{username}";
         localStorage.setItem("username", "{username}");
         localStorage.setItem("email", "{email}");
-        localStorage.setItem("login_time", "{login_time}");
         document.getElementById("welcome").textContent = "Welcome " + username;
     </script>
     """     
