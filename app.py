@@ -104,7 +104,9 @@ def logout():
 
 @app.route("/mylist")
 def my_list():
-    is_authenticated()
+    auth = is_authenticated()
+    if auth is not True:
+        return auth
     
     email = session["user_email"]
     username = ""
@@ -235,8 +237,10 @@ def search():
 
 @app.route("/add_show", methods=["GET", "POST"])
 def add_show():
-    is_authenticated()
-    
+    auth = is_authenticated()
+    if auth is not True:
+        return auth
+        
     email = session ["user_email"]
     
     name = request.form.get("name")
@@ -253,7 +257,10 @@ def add_show():
 
 @app.route("/edit_show", methods=["GET", "POST"])
 def edit_show():
-    is_authenticated()
+    auth = is_authenticated()
+    if auth is not True:
+        return auth
+
     
     email = session["user_email"]
     name = request.form.get("name")
@@ -269,8 +276,10 @@ def edit_show():
 
 @app.route("/delete_show", methods=["GET", "POST"])
 def delete_show():
-    is_authenticated()
-
+    auth = is_authenticated()
+    if auth is not True:
+        return auth
+    
     email = session["user_email"]
     name = request.form.get("name")
     
