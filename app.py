@@ -1,13 +1,14 @@
 import json
 from flask import Flask, request, jsonify, session, redirect, url_for
-import time
+from datetime import datetime
 from users_list import UserShows
 
 app = Flask(__name__)
 app.secret_key = "Xx_secret_key_xX"
 
 def get_html(page_name):
-    with open(page_name + ".html") as html_file:
+    path = f"templates/{page_name}.html"
+    with open(path) as html_file:
         return html_file.read()
     
 def json_file():
@@ -30,7 +31,7 @@ def logs(email ,password):
             username, registered_email, registered_password = parts
             if registered_email ==  email and registered_password == password: 
                 session["user_email"] = email
-                current_time = time.strftime("%Y-%m-%d %H:%M:%S")
+                current_time = datetime.now().isoformat(sep=" ", timespec="seconds")
                
                 with open("database/logs.txt", "a") as log:
                     log.write(f"{username}|{email}|{current_time}\n")
@@ -44,13 +45,13 @@ def registration(username, email, password):
     if not (username and email and password and len(password) >= 8):
         return html.replace("$$error$$", "Invaild email or passoword.")
     
-    with open("database/register.txt", "r") as db:
+    with open("database/register.txt") as db:
         for line in db:
             if email in line:
                 return html.replace("$$error$$", "Email already exists.")
 
-        with open("database/register.txt", "a") as db:
-             db.write(f"{username}|{email}|{password}\n")
+    with open("database/register.txt", "a") as db:
+            db.write(f"{username}|{email}|{password}\n")
     return redirect(url_for("login"))
 
 @app.route("/")
@@ -146,7 +147,7 @@ def my_list():
                     </select>
                 </td>
                 <td>
-                    <input type="number" step="0.5" min="1" max="10" name="rating" value="{show['rating']}">
+                    <input type="number" class="number" step="0.5" min="1" max="10" name="rating" value="{show['rating']}">
                 </td>
                 <td>{show.get('category')}</td>
                 <td>{show.get('studio')}</td>

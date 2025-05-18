@@ -12,40 +12,13 @@
   ],
   "ranpomar2@gmail.com": [
     {
-      "name": "One Piece",
-      "status": "Watching",
-      "rating": "7.5",
-      "category": "Animation | Drama | Adventure",
-      "studio": "Toei Animation",
-      "notes": "I like this anime but it is too long",
-      "img": "https://f.ptcdn.info/474/056/000/p55ua4uuw5hbBfpWS5Q-o.jpg"
-    },
-    {
       "name": "Attack on Titan",
       "status": "Completed",
-      "rating": "9",
+      "rating": "3",
       "category": "Animation | Drama | Adventure",
       "studio": "Wit Studio",
-      "notes": "Great anime\r\nBad ending",
+      "notes": "I want to survifuyjhjve ",
       "img": "https://images-na.ssl-images-amazon.com/images/I/91-t39FCmSL.jpg"
-    },
-    {
-      "name": "Death Note",
-      "status": "Completed",
-      "rating": "10",
-      "category": "Animation | Adventure",
-      "studio": "Madhouse",
-      "notes": "This is my favorite anime!",
-      "img": "https://static.posters.cz/image/750/plakaty/death-note-from-the-shadows-i58005.jpg"
-    },
-    {
-      "name": "Tokyo Ghoul",
-      "status": "Dropped",
-      "rating": "5",
-      "category": "Action | Mystery",
-      "studio": "Studio Pierrot",
-      "notes": "this ani,e is trash",
-      "img": "https://upload.wikimedia.org/wikipedia/en/e/e5/Tokyo_Ghoul_volume_1_cover.jpg"
     }
   ]
 }
