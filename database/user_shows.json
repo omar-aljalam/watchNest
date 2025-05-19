@@ -2,10 +2,17 @@
   "ranpomar2@gmail.com": [
     {
       "name": "Monster",
-      "status": "Plan to Watch",
-      "rating": "",
-      "notes": "NICE",
+      "status": "Completed",
+      "rating": "10",
+      "notes": "This is my favorite Anime!",
       "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/826ce2f3-1d3a-4ca5-834e-06ec10744b27/df5nsoh-da09dd07-b784-4147-9396-94c2d05709a6.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzgyNmNlMmYzLTFkM2EtNGNhNS04MzRlLTA2ZWMxMDc0NGIyN1wvZGY1bnNvaC1kYTA5ZGQwNy1iNzg0LTQxNDctOTM5Ni05NGMyZDA1NzA5YTYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JfgM389GmC02vlgz-6kjwtW-SEXsEk8h8vbrshVw3Ck"
+    },
+    {
+      "name": "Death Note",
+      "status": "Watching",
+      "rating": "9.5",
+      "notes": "Genuis!",
+      "img": "https://static.posters.cz/image/750/plakaty/death-note-from-the-shadows-i58005.jpg"
     }
   ],
   "lawlitel913@gmail.com": [
