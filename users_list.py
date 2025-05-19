@@ -1,12 +1,10 @@
 import json
 class UserShows:
-    def __init__(self, name, img, status, rating, category, studio, notes):
+    def __init__(self, name, img, status, rating, notes):
         self.name = name
         self.img = img
         self.status = status
         self.rating = rating
-        self.category = category
-        self.studio = studio
         self.notes = notes
 
     def to_dict(self):
@@ -14,8 +12,6 @@ class UserShows:
             "name": self.name,
             "status": self.status,
             "rating": self.rating,
-            "category": self.category,
-            "studio": self.studio,
             "notes": self.notes,
             "img": self.img
         }
@@ -26,8 +22,20 @@ class UserShows:
     
         if email not in data:
             data[email] = []
-        
-        data[email].append(show.to_dict())
+
+        showDict = show.to_dict()
+        updated = False
+
+        for anime in data[email]:
+            if anime["name"].strip() == showDict["name"].strip():
+                for key, value in showDict.items():
+                    if key in anime:
+                        anime[key] = value
+                updated = True
+                break
+            
+        if not updated:
+            data[email].append(show.to_dict())
 
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)

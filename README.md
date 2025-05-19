@@ -7,14 +7,11 @@ Users can log in, browse shows, and organize their watch history by status, rati
   It allows users to browse animes and manage a personalized list using Flask, localStorage, and file-based storage.
 
 - What is the "new feature" you've implemented?  
-  The app handles persistent watchlists using JSON files and dynamically updates user login state on the front end with `localStorage`.
 
+
+---
 
 ## Prerequisites
-
-Everything is implemented using:
-- Flask (standard for this course)
-- Standard Library modules like `datetime` and `json`
 
 - Before running the project, make sure you have Python installed.
 - You will also need to install Flask:

@@ -38,3 +38,4 @@ function filterRow(row) {
 filterRows();
 
 filterSelect.addEventListener("change", filterRows);
+

@@ -43,7 +43,7 @@ def logs(email ,password):
 def registration(username, email, password):
     html = get_html("register")
     if not (username and email and password and len(password) >= 8):
-        return html.replace("$$error$$", "Invaild email or passoword.")
+        return html.replace("$$error$$", "Invaild email or password.")
     
     with open("database/register.txt") as db:
         for line in db:
@@ -77,7 +77,7 @@ def login():
             </script>
             """
         else:
-            return html.replace("$$error$$", "Invalid email or passowrwd.")
+            return html.replace("$$error$$", "Invalid email or password.")
         
     return html.replace("$$error$$", "")
 
@@ -149,19 +149,17 @@ def my_list():
                 <td>
                     <input type="number" class="number" step="0.5" min="1" max="10" name="rating" value="{show['rating']}">
                 </td>
-                <td>{show.get('category')}</td>
-                <td>{show.get('studio')}</td>
                 <td>
                     <textarea name="notes">{show.get('notes', '')}</textarea>
                 </td>
                 <td>
-                    <button type="submit" class="action-btn">Save</button>
+                    <button type="submit" class="action-btn" onclick="alert('Changes has been made!')">Save</button>
                 </td>
             </form>
             <form action="/delete_show" method="post">
                 <input type="hidden" name="name" value="{show['name']}">
                 <td>
-                    <button type="submit" class="action-btn delete-btn">Delete</button>
+                    <button type="submit" class="action-btn delete-btn" onclick="return confirm('Are you sure you want to delete this show?')">Delete</button>
                 </td>
             </form>
         </tr>
@@ -219,10 +217,7 @@ def details():
                 html += """
                 <script>
                     const btn = document.getElementById("btn");
-                    btn.textContent = "Already in List";
-                    btn.disabled = true;
-                    btn.style.backgroundColor = "gray";
-                   
+                    btn.textContent = "Update!";   
                 </script>
                 """
             return html
@@ -246,13 +241,11 @@ def add_show():
     
     name = request.form.get("name")
     img = request.form.get("img")
-    category = request.form.get("category")
-    studio =  request.form.get("studio")
     status = request.form.get("status")
     notes =  request.form.get("notes")
     rating =  request.form.get("rating")
 
-    show = UserShows(name, img, status, rating, category, studio, notes)
+    show = UserShows(name, img, status, rating, notes)
     UserShows.add_shows(email, show)
     return redirect(url_for("my_list"))
 

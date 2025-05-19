@@ -1,5 +1,3 @@
-
-
 h1 {
     text-align: center;
     margin: 30px 0 20px;
@@ -7,6 +5,7 @@ h1 {
 
 .filter-container {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .filter-container label{
@@ -19,6 +18,8 @@ h1 {
     margin: 40px auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 1200px;
 }
 .anime-table th,
  .anime-table td {
@@ -42,9 +43,6 @@ h1 {
     width: 70px;
     border-radius: 3px;
 }
-.anime-info span {
-    display: inline-block;
-}
 
 textarea {
     height: 60px;
@@ -56,6 +54,8 @@ textarea {
     resize: vertical;
     line-height: 1.4;
     font-family: Arial;
+    width: 100%;
+    max-width: 400px;
 }
 
 .action-btn,
@@ -106,4 +106,31 @@ select {
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .anime-table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .anime-table th,
+    .anime-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+  
+    .anime-info img {
+        width: 60px;
+    }
+
+    .number {
+        width: 100%;
+        font-size: 14px;
+    }
+
 }
