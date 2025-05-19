@@ -55,8 +55,15 @@ Everything is implemented using:
 
 ## How to Run
 
-1. Make sure Python and Flask are installed.
-2. Place the project folder structure like this:
+1. Requirements
+Make sure you have the following installed:
+
+Python 3.7+
+
+Flask (pip install flask)
+
+2. Project Structure
+Ensure the folder structure looks like this:
 
 | File                    | Destination folder     |
 | ----------------------- | ---------------------- |

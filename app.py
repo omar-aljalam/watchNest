@@ -288,6 +288,11 @@ def delete_show():
 
     return redirect(url_for("my_list"))
     
-        
+@app.after_request
+def head(response):
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate"
+    return response
+
+
 if __name__ == "__main__":
     app.run(debug=True)

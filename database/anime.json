@@ -178,5 +178,54 @@
             "categorie": "Action | Supernatural | Historical",
             "studio": "ufotable",
             "img": "https://upload.wikimedia.org/wikipedia/en/0/09/Demon_Slayer_-_Kimetsu_no_Yaiba%2C_volume_1.jpg"
+        },
+        {
+            "name": "Cowboy Bebop",
+            "description": "In a futuristic space-western setting, a crew of bounty hunters aboard the spaceship Bebop chase fugitives across the solar system, blending noir, jazz, and action elements to explore themes of loneliness and redemption.", 
+            "Rating": "8.89",
+            "episode": 26,
+            "categorie": "Sci-Fi | Western | Action",
+            "studio": "Sunrise",
+            "img": "https://upload.wikimedia.org/wikipedia/en/a/a9/Cowboy_Bebop_key_visual.jpg"
+        },
+        {
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "description": "Exiled prince Lelouch Lamperouge obtains the supernatural power of Geass and leads a masked rebellion against the Holy Britannian Empire, commanding mecha battles and political intrigue in an alternate timeline.", 
+            "Rating": "8.72",
+            "episode": 25,
+            "categorie": "Mecha | Drama | Sci-Fi",
+            "studio": "Sunrise",
+            "img": "https://upload.wikimedia.org/wikipedia/en/7/74/Code_Geass_R1_box_set_cover.jpg"
+        },
+        {
+            "name": "My Hero Academia",
+            "description": "In a world where superpowers called \"Quirks\" are common, Quirkless Izuku Midoriya inherits the legendary power One For All and enrolls at U.A. High School to train as the next Symbol of Peace.", 
+            "Rating": "8.18",
+            "episode": 159,
+            "categorie": "Action | Superhero | School",
+            "studio": "Bones",
+            "img": "https://upload.wikimedia.org/wikipedia/en/5/5a/Boku_no_Hero_Academia_Volume_1.png"
+        },
+        {
+            "name": "JoJo's Bizarre Adventure",
+            "description": "An anime adaptation of Hirohiko Araki’s manga, produced by David Production; it follows the Joestar family across generations as they combat supernatural threats using psychic manifestations called Stands.",
+            "Rating": "8.46",
+            "episode": 190,
+            "categorie": "Adventure | Supernatural",
+            "studio": "David Production",
+            "img": "https://upload.wikimedia.org/wikipedia/en/f/f7/JoJo_no_Kimyou_na_Bouken_cover_-_vol1.jpg"
+        },
+        {
+            "name": "Neon Genesis Evangelion",
+            "description": "A mecha anime series directed by Hideaki Anno and produced by Gainax and Tatsunoko Production; set fifteen years after a global cataclysm, teenagers pilot giant biomechanical units to fight mysterious beings called Angels.",
+            "Rating": "8.36",
+            "episode": 26,
+            "categorie": "Apocalyptic | Mecha | Psychological Drama",
+            "studio": "Gainax, Tatsunoko Production",
+            "img": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTccXvWO6OdcS1AS9iFONiFKs2G8svDDEo5maVzg5qkf6gzKUDD"
         }
+
+
+
+
 ]

@@ -8,7 +8,6 @@
 }
 .anime-details h1 {
     font-size: 44px;
-    color: #2c3e50;
     margin-bottom: 20px;
 }
 
@@ -17,12 +16,11 @@
     border-radius: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .anime-details p {
     font-size: 25px;
-    color: #333;
     line-height: 1.5;
     margin-bottom: 15px;
 }
