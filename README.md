@@ -30,17 +30,17 @@ Users can log in, browse shows, and organize their watch history by status, rati
   - Line number(s) for the class definition: Line 2  
   - Name of two properties: `name`, `status`  
   - Name of two methods: `add_shows()`, `edit_shows()`  
-  - File name and line numbers where the methods are used: `app.py` — lines 256, 275
+  - File name and line numbers where the methods are used: `app.py` — lines 254, 273
 - [x] It makes use of JavaScript in the front end and uses the `localStorage` of the web browser.
 - [x] It uses modern JavaScript (for example, `let` and `const` rather than `var`).
 - [x] It makes use of the reading and writing to the same file feature.  
   Files: `database/register.txt`, `database/logs.txt`, `database/user_shows.json`
 - [x] It contains conditional statements.  
   - File name: `app.py`  
-  - Line number(s): ~68, ~72, ~242
+  - Line number(s):  74, 236
 - [x] It contains loops.  
   - File name: `app.py`  
-  - Line number(s): 29 , 235 
+  - Line number(s): 217
 - [x] It lets the user enter a value in a text box at some point.  
 - [x] It doesn't generate any error message even if the user enters a wrong input.  
 - [x] It is styled using your own CSS.  

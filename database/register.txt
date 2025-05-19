@@ -1,3 +1,2 @@
-Omar|lawlitel913@gmail.com|12345678
-Khaled|ranpomar2@gmail.com|12345678
-
+Khaled|ranpomar2@gmail.com|0.2552083333333333
+Omar|lawlitel913@gmail.com|0.2552083333333333

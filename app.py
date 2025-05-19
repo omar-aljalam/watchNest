@@ -20,7 +20,13 @@ def is_authenticated():
     if "user_email" not in session:
         return redirect(url_for("login"))
     return True
-     
+
+def hashing(password):
+    value = 0
+    for i, char in enumerate(password):
+        value += (((i+1) * ord(char)) / ((ord(char)-1) * 4))
+        return str(value)
+    
 def logs(email ,password):
     if not (email and password):
         return False, None
@@ -29,7 +35,7 @@ def logs(email ,password):
         for line in registers_db:
             parts = line.strip().split("|")
             username, registered_email, registered_password = parts
-            if registered_email ==  email and registered_password == password: 
+            if registered_email ==  email and registered_password == hashing(password): 
                 session["user_email"] = email
                 current_time = datetime.now().isoformat(sep=" ", timespec="seconds")
                
@@ -49,9 +55,9 @@ def registration(username, email, password):
         for line in db:
             if email in line:
                 return html.replace("$$error$$", "Email already exists.")
-
+    hash_pass = hashing(password)
     with open("database/register.txt", "a") as db:
-            db.write(f"{username}|{email}|{password}\n")
+            db.write(f"{username}|{email}|{hash_pass}\n")
     return redirect(url_for("login"))
 
 @app.route("/")
