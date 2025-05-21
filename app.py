@@ -25,7 +25,7 @@ def hashing(password):
     value = 0
     for i, char in enumerate(password):
         value += (((i+1) * ord(char)) / ((ord(char)-1) * 4))
-        return str(value)
+    return str(value)
     
 def logs(email ,password):
     if not (email and password):
@@ -233,7 +233,8 @@ def details():
 def search():
     data = json_file()
     query =request.args.get("query", "").lower()
-    results = [anime for anime in data
+    results = [anime
+                for anime in data
                 if query in anime["name"].lower()]
     return jsonify(results)
 
@@ -276,9 +277,7 @@ def edit_show():
 
 @app.route("/delete_show", methods=["GET", "POST"])
 def delete_show():
-    auth = is_authenticated()
-    if auth is not True:
-        return auth
+
     
     email = session["user_email"]
     name = request.form.get("name")
